@@ -118,7 +118,7 @@ services:
       - "20000:8080"  # Web UI 端口
       - "50000:50000"  # Agent 连接端口
     volumes:
-      - /home/jenkins/work:/var/jenkins_home  # 数据持久化
+      - ./work/jenkins_home:/var/jenkins_home  # 数据持久化
       - /var/run/docker.sock:/var/run/docker.sock  # 宿主机 Docker 控制
       - /usr/bin/docker:/usr/bin/docker  # 宿主机 Docker 命令
   srs:
@@ -132,12 +132,12 @@ services:
       - "8000:8000/udp"      # WebRTC媒体传输
       - "1989:1989/tcp"      # WebRTC信令
       - "8443:8443/tcp"      # HTTPS/WSS
-      - "61100-61200:61100-61200/udp" # WebRTC动态端口范围
+      - "61100-61150:61100-61150/udp" # WebRTC动态端口范围
     environment:
       - CANDIDATE=192.168.1.37   # 公网ip
       - SRS_LISTEN=8000          # WebRTC监听端口
       - SRS_HTTP_SERVER_PORT=7088
       - SRS_HTTP_API_PORT=1985
     volumes:
-      - "/home/docker/srs:/usr/local/srs/conf"
+      - ./srs:/usr/local/srs/conf
     command: [ "./objs/srs", "-c", "conf/srs_conf_7088.conf" ]

@@ -17,5 +17,5 @@ chmod 777 /home/docker/rocketmq/timerwheel/
 - **仔细阅读**: docker-compose.yml 的内容（redis的密码也在这里面设置的）、./env 文件夹下面的内容，里面包含了账号密码等信息
 - **打开目录**: 当前文件夹下输入 cmd 回车
 - **执行命令**: docker-compose up -d
-- **导入nacos数据库**: [mysql-schema.sql](../mysql-schema.sql)
+- **导入nacos数据库**: [nacos.sql](../sql/nacos.sql)
 - **导入nacos命名空间数据**: [nacos_config.zip](../nacos/nacos_config.zip)
